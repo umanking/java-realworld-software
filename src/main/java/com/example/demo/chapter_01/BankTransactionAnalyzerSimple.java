@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.chapter_01;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,7 +11,6 @@ public class BankTransactionAnalyzerSimple {
     private static final String RESOURCES = "src/main/resources/file.csv";
 
     public static void main(String[] args) throws IOException {
-
         Path path = Paths.get(RESOURCES);
         List<String> lines = Files.readAllLines(path);
         double total = 0d;
