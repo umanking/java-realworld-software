@@ -9,14 +9,6 @@ public class BankStatementCSVParser {
 
     private static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-    private BankTransaction parseFromCSV(String line) {
-        String[] columns = line.split(",");
-        LocalDate localDate = LocalDate.parse(columns[0], DATE_PATTERN);
-        double amount = Double.parseDouble(columns[1]);
-        String description = columns[2];
-        return new BankTransaction(localDate, amount, description);
-    }
-
     public List<BankTransaction> parseLinesFromCSV(List<String> lines) {
         List<BankTransaction> result = new ArrayList<>();
         for (String line : lines) {
@@ -24,6 +16,14 @@ public class BankStatementCSVParser {
         }
 
         return result;
+    }
+
+    private BankTransaction parseFromCSV(String line) {
+        String[] columns = line.split(",");
+        LocalDate localDate = LocalDate.parse(columns[0], DATE_PATTERN);
+        double amount = Double.parseDouble(columns[1]);
+        String description = columns[2];
+        return new BankTransaction(localDate, amount, description);
     }
 
 }

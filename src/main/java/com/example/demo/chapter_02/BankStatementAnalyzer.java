@@ -13,10 +13,10 @@ public class BankStatementAnalyzer {
 
     public static void main(String[] args) throws IOException {
         Path path = Paths.get(RESOURCES);
-        List<String> list = Files.readAllLines(path);
+        List<String> lines = Files.readAllLines(path);
 
         BankStatementCSVParser bankStatementCSVParser = new BankStatementCSVParser();
-        List<BankTransaction> bankTransactions = bankStatementCSVParser.parseLinesFromCSV(list);
+        List<BankTransaction> bankTransactions = bankStatementCSVParser.parseLinesFromCSV(lines);
         BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
 
         collectSummary(bankStatementProcessor);
