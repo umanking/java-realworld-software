@@ -1,6 +1,7 @@
 package com.example.demo.chapter_02;
 
 import java.time.LocalDate;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,6 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class BankTransaction {
 
     private LocalDate date;
