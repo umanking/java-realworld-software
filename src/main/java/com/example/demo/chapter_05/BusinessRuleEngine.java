@@ -1,16 +1,24 @@
 package com.example.demo.chapter_05;
 
+import java.util.List;
+
 public class BusinessRuleEngine {
 
-    public void addAction(Action action){
-        throw new UnsupportedOperationException();
+    private final List<Action> actions;
+
+    public BusinessRuleEngine(List<Action> actions) {
+        this.actions = actions;
+    }
+
+    public void addAction(Action action) {
+        actions.add(action);
     }
 
     public int count() {
-        throw new UnsupportedOperationException();
+        return actions.size();
     }
 
     public void run() {
-        throw new UnsupportedOperationException();
+        this.actions.forEach(Action::execute);
     }
 }
